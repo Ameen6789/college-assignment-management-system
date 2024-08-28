@@ -1,0 +1,5 @@
+Instructions:
+1. Copy all files to game directory.
+2. Run repack.exe
+3. Customize scripts\Unlocker.ini
+4. Run game.

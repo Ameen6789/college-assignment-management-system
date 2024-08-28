@@ -1,0 +1,103 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>teacher Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'teacher/css/style.css' %}">
+    
+</head>
+<body class="min-vh-100 d-flex">
+    <nav id="sidebar" class=" navbar align-items-start text-white">
+        <ul class="nav flex-column">
+            <p class="text-center mb-0 mt-2 fs-5">Teacher</p>
+            <hr>
+            <p class="text-center mb-0">Hi {{teacher_name}} !!</p>
+            <hr>
+            <li class="nav-item mb-2 w-auto "><a href="/teacher_dashboard" class="nav-link text-white d-flex align-items-end"><img src="{% static 'teacher/images/dashboard-128.png' %}" style="width: 23px;height: 23px;color: white;" alt="" class="me-3"> Dashboard</a></li>
+            <li class="nav-item mb-2"><a href="/teacher_assignment" class="nav-link text-white d-flex align-items-end"><img src="{% static 'teacher/images/file.png' %}" style="width: 23px;height: 23px;color: white;" alt="" class="me-3">Assignment</a></li>
+            <li class="nav-item mb-2"><a href="/study_material" class="nav-link text-white d-flex align-items-end"><img src="{% static 'teacher/images/material.png' %}" style="width: 23px;height: 23px;color: white;" alt="" class="me-3">Study Material</a></li>
+            <li class="nav-item mb-2"><a href="/teacher_news" class="nav-link text-white d-flex align-items-end"><img src="{% static 'teacher/images/news.png' %}" style="width: 23px;height: 23px;color: white;" alt="" class="me-3">Announcements</a></li>
+            <li class="nav-item mb-2">
+                <a class="nav-link text-white d-flex align-items-end" data-bs-toggle="collapse" href="#submenu1" role="button" aria-expanded="false" aria-controls="submenu1">
+                    <img src="{% static 'teacher/images/assignment.png' %}" style="width: 23px;height: 23px;color: white;" alt="" class="me-3">Uploaded Assignment
+                    <i class="ms-3 fas fa-chevron-down mb-1 me-2"></i>
+                </a>
+                <div class="collapse" id="submenu1">
+                    <ul class="nav flex-column ms-0">
+                        <li class="nav-item">
+                            <a class="nav-link text-white ps-5" href="/teacher_unchecked_assignment">&nbsp; Unchecked</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white ps-5 " href="/teacher_checked_assignment">&nbsp; Checked</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item mb-2"><a href="/course_wise_student" class="nav-link text-white d-flex align-items-end"><img src="{% static 'teacher/images/user.png' %}" style="width: 23px;height: 23px;color: white;" alt="" class="me-3">Reg Students</a></li>
+            <li class="nav-item mb-2"><a href="/teacher_profile" class="nav-link text-white d-flex align-items-end"><img src="{% static 'teacher/images/user.png' %}" style="width: 23px;height: 23px;color: white;" alt="" class="me-3">Profile</a></li>
+            <li class="nav-item mb-2"><a href="/teacher_change_password" class="nav-link text-white d-flex align-items-end"><img src="{% static 'teacher/images/key.svg' %}" style="width: 23px;height: 23px;color: white;" alt="" class="me-3">Change Password</a></li>
+            <li class="nav-item mb-2"><a href="/logout" class="nav-link text-white d-flex align-items-end"><img src="{% static 'teacher/images/logout.png' %}" style="width: 23px;height: 23px;color: white;" alt="" class="me-3">Logout</a></li>
+        </ul>
+    </nav>
+    <div id="main-div">
+        <div class="d-flex align-items-center">
+            <img src="{% static 'student/images/hamburger-button.png' %}" alt="" id="nav-button" class="ms-2" width="32px" height="32px">
+            <h2 class="text-center py-2 w-100">COLLEGE ASSIGNMENT SYSTEM </h2>
+        </div>
+        <div id="div1"></div>
+        <div class="w-100 px-3">
+            <h2 class=" mt-3 mb-2 pb-0 d-inline-block">Profile</h2>
+            <hr class="mt-0 border-4 text-success opacity-100">
+        </div>
+
+        <form method="post" class="mt-3 px-3 py-0 fw-bold" action="/teacher_profile" onsubmit="return mobileValidation()">
+            {% csrf_token %}
+            <label for="first_name" class="mb-1">First Name</label>
+            <input type="text" value="{{edit.emp.first_name  | title }}" name="first_name" class="form-control mb-2" required>
+
+            <label for="last_name" class="mb-1">Last Name</label>
+            <input type="text" value="{{edit.emp.last_name  | title }}" name="last_name" class="form-control mb-2" required>
+
+            <label for="gender" class="mb-1">Gender</label>
+            <select name="gender" id="" value="{{edit.gender  | title }}" name="gender" class="form-select" required>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="others">Others</option>
+            </select>
+
+            <label for="email" class="mb-1">Email</label>
+            <input type="email" value="{{edit.emp.username}}" class="form-control mb-2" disabled>
+
+            <label for="mobile_number" class="mb-1">Mobile Number</label>
+            <input type="number" value="{{edit.mobile_number }}" name="mobile_number" id="mobile_number" class="form-control mb-2 " required>
+
+            <label for="course" class="mb-1">Employee ID</label>
+            <input type="text" value="{{edit.id}}" class="form-control mb-2" disabled>
+
+            <label for="empid" class="mb-1">Course</label>
+            <select class="form-select" name="course" id="" disabled>
+                <option value="{{edit.course_id}}" selected>{{edit.emp.course.course}} [{{edit.emp.course.branch}}]</option>
+            </select>
+
+            <label for="dob" class="mb-1">Date of Birth</label>
+            <input type="date" class="form-control mb-4" name="date_of_birth" value="{{ edit.date_of_birth|date:'Y-m-d' }}">
+
+            <label for="address" class="mb-1">Address</label>
+            <textarea name="address" id="" cols="30" rows="2" value="" name="address" class="form-control" required>{{edit.address  | title }}</textarea>
+            
+            <label for="joinig_date" class="mb-1">Joining Date</label>
+            <input type="datetime-local" class="form-control mb-4" value="{{ edit.emp.date_joined|date:'Y-m-d\\TH:i' }}" disabled>
+            <input type="submit" class="btn btn-primary mb-5" value="Update">
+        </form>
+
+       
+    </div>
+    <script src="{% static 'teacher/js/script.js' %}"></script>
+</body>
+</html>

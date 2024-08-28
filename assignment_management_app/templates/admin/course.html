@@ -1,0 +1,123 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'admin/css/style.css' %}">
+    
+</head>
+<body class="min-vh-100 d-flex">
+    
+    <nav id="sidebar" class=" navbar align-items-start text-white">
+        <ul class="nav flex-column">
+            <hr>
+            <p class="text-center mb-0 fs-5">Administrator</p>
+            <hr>
+            <li class="nav-item mb-2 w-auto "><a href="/dashboard" class="nav-link text-white text-white d-flex align-items-end"><img src="{% static 'admin/images/dashboard.png' %}" style="width: 23px;height: 23px;color: white;" alt="" class="me-3"> Dashboard</a></li>
+            <li class="nav-item mb-2"><a href="/course" class="nav-link text-white text-white d-flex align-items-end"><img src="{% static 'admin/images/book-stack.png' %}" style="width: 23px;height: 23px;color: white;" alt="" class="me-3">Course</a></li>
+            <li class="nav-item mb-2"><a href="/subject" class="nav-link text-white text-white d-flex align-items-end"><img src="{% static 'admin/images/book.png' %}" style="width: 23px;height: 23px;color: white;" alt="" class="me-3">Subject</a></li>
+            <li class="nav-item mb-2"><a href="/teacher" class="nav-link text-white text-white d-flex align-items-end"><img src="{% static 'admin/images/teacher.svg' %}" style="width: 23px;height: 23px;color: white;" alt="" class="me-3">Teacher</a></li>
+            <li class="nav-item mb-2"><a href="/reg_stud" class="nav-link text-white text-white d-flex align-items-end"><img src="{% static 'admin/images/student.svg' %}" style="width: 25px;height: 25px;color: white;" alt="" class="me-3">Student</a></li>
+            <li class="nav-item mb-2"><a href="/news" class="nav-link text-white text-white d-flex align-items-end"><img src="{% static 'admin/images/news.png' %}" style="width: 23px;height: 23px;color: white;" alt="" class="me-3">Announcements</a></li>
+            <li class="nav-item mb-2">
+                <a class="nav-link text-white d-flex align-items-end" data-bs-toggle="collapse" href="#submenu1" role="button" aria-expanded="false" aria-controls="submenu1">
+                    <img src="{% static 'admin/images/assignment.png' %}" style="width: 23px;height: 23px;color: white;" alt="" class="me-3">Uploaded Assignment
+                    <i class="ms-3 fas fa-chevron-down mb-1 me-2"></i>
+                </a>
+                <div class="collapse" id="submenu1">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link text-white ps-5" href="/unchecked_assignment">&nbsp; Unchecked</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white ps-5 " href="/checked_assignment">&nbsp; Checked</a>
+                        </li>
+                        
+                    </ul>
+                    
+                </div>
+            </li>
+            <li class="nav-item mb-2"><a href="/btw_date_assignment" class="nav-link text-white text-white d-flex align-items-end"><img src="{% static 'admin/images/calendar.png' %}" style="width: 23px;height: 23px;color: white;" alt="" class="me-3">B/w Date Assignment</a></li>
+            <li class="nav-item mb-2"><a href="/search" class="nav-link text-white text-white d-flex align-items-end"><img src="{% static 'admin/images/search.svg' %}" style="width: 23px;height: 23px;color: white;" alt="" class="me-3">Search</a></li>
+            <li class="nav-item mb-2"><a href="/change_password" class="nav-link text-white text-white d-flex align-items-end"><img src="{% static 'admin/images/key.svg' %}" style="width: 23px;height: 23px;color: white;" alt="" class="me-3">Change Password</a></li>
+            <li class="nav-item mb-2"><a href="/logout" class="nav-link text-white text-white d-flex align-items-end"><img src="{% static 'admin/images/logout.png' %}" style="width: 23px;height: 23px;color: white;" alt="" class="me-3">Logout</a></li>
+        </ul>
+    </nav>
+    <div id="main-div">
+        <div class="d-flex align-items-center">
+            <img src="{% static 'student/images/hamburger-button.png' %}" alt="" id="nav-button" class="ms-2" width="32px" height="32px">
+            <h2 class="text-center py-2 w-100">COLLEGE ASSIGNMENT SYSTEM </h2>
+        </div>
+        <div id="div1"></div>
+        <div class="w-100 px-3">
+            <h2 class=" mt-3 mb-2 pb-0 d-inline-block">Manage Course</h2>
+            <button class="btn btn-success float-end mt-3" data-bs-toggle="modal" data-bs-target="#ModalForm">+ Add New Course</button>
+            <hr class="mt-0 border-4 text-success opacity-100">
+        </div>
+
+
+
+        <div class="modal fade" id="ModalForm" tabindex="-1" aria-labelledby="ModalFormLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <form action="/course" method="post" class="pt-2 p-4 mt-0 d-inline-block rounded w-100">
+                            {% csrf_token %}
+                            <h3 class="mb-4">Add Course</h3>
+                        
+                            <table class="fw-bold w-100">
+                                <tr>
+                                    <td class="pb-2">Course Name</td>
+                                    <td class="pb-2"><input type="text" name="course" class="form-control w-100" required></td>
+                                </tr>
+                                <tr>
+                                    <td class="pb-2 pe-5">Branch Name</td>
+                                    <td class="pb-2"><input type="text" name="branch" class="form-control w-100" required></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td>
+                                    <td class="pt-3"><input type="submit" value="Add Course" class="btn btn-primary"></td>
+                                </tr>
+                            </table>
+                        </form>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mx-0 px-0">
+            <div class="mx-3 table-responsive">
+                <table id="details-table" class="w-100 table">
+                    <tr>
+                        <th>S No.</th>
+                        <th>Course Name</th>
+                        <th>Branch Name</th>
+                        <th >Action</th>
+                    </tr>
+                    
+                    {% for i in data %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{i.course  | title }}</td>
+                        <td>{{i.branch  | title }}</td>
+                        <td><a href="edit_course/{{i.id}}"><button class="btn btn-primary me-2">Edit</button></a>  <a href="delete_course/{{i.id}}"><button class="btn btn-danger">Delete</button></a></td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+    <script src="{% static 'admin/js/script.js' %}"></script>
+</body>
+</html>

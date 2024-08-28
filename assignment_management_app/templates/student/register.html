@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>student</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{% static 'student/css/style.css' %}">
+    
+</head>
+<body class="min-vh-100 d-flex justify-content-center align-items-center register-page">
+    <form action="/register" method="post" onsubmit="return validatePasswordandMobile()" class="bg-white  my-5 rounded py-5 px-4" id="register-form">
+        {% csrf_token %}
+        <h1 class="mb-4">Registration</h1>
+        <div>
+            <div id="registration-part" class="d-flex">
+                <div class=" me-4 mb-3 ">
+                    <h6 class="fw-bold">First Name</h6>
+                    <input type="text" name="first_name" placeholder="Enter first name" class="w-100 form-control" required>
+                </div>
+                <div class="mb-3 ">
+                    <h6 class="fw-bold">Last Name</h6>
+                    <input type="text" name="last_name" placeholder="Enter last name" class="w-100 form-control" required>
+                </div>
+                
+            </div>
+
+            <div class="d-flex " id="registration-part">
+                <div class="me-4 mb-3 ">
+                    <h6 class="fw-bold">Email</h6>
+                    <input type="email" name="username" placeholder="Enter email" class="w-100 form-control" required>
+                </div>
+                <div>
+                    <h6 class="mb-3  fw-bold">Password</h6>
+                    <input type="password" name="password" placeholder="Enter password" class="w-100 form-control password mb-3" required>
+                </div>
+                
+            </div>
+
+
+            <div class="d-flex" id="registration-part">
+                <div class="mb-3 me-4">
+                    <h6 class="fw-bold">Confirm Password</h6>
+                    <input type="password" name="confirm_password" placeholder="Confirm your password" class="w-100 form-control confirm_password" required>
+                </div>
+
+                <div>
+                    <h6 class="mb-3  fw-bold">Phone Number</h6>
+                    <input type="number" name="mobile_number" placeholder="Enter Phone number" class="w-100 form-control mobile_number mb-3" required>
+                </div>
+                
+            </div>
+
+
+            <div class="d-flex" id="registration-part">
+                <div class="mb-3  me-4">
+                    <h6 class="fw-bold">Roll Number</h6>
+                    <input type="number" name="roll_no" placeholder="Enter roll number" class="w-100 form-control" required>
+                </div>
+                <div class="mb-5 ">
+                    <h6 class="fw-bold">Course</h6>
+                    <select class="form-select" name="course" id="" required>
+                        <option value="">Select Course Name</option>
+                        {% for course in courses %}
+                        <option value="{{ course.id }}">{{ course.course | title }} [{{ course.branch  | title }}]</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                
+            </div>
+
+
+            <div class="w-100 ">
+                <input type="submit" value="Register" class="btn btn-lg form-control fw-bold text-white">
+            </div>
+        </div>
+        
+    </form>
+    <script src="{% static 'student/js/script.js' %}"></script>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{% static 'common/css/style.css' %}">
+</head>
+<body>
+    <nav class="navbar d-flex align-items-xl-center" id="navbar">
+        <img src="{% static 'common/images/college-logo.jpg' %}" width="60px" height="60px" class="me-4 p-0" alt="">
+        <h2 class="text mb-0 text-white " id="title">College Assignment System</h2>
+        <ul class="nav ms-auto" id="nav">
+            <li class="nav-item"><a href="" class="nav-link text-white d-flex align-items-start"><img src="{% static 'common/images/home.svg' %}"  alt="" width="22px" height="22px" class="me-2"> Home</a></li>
+            <li class="nav-item"><a href="/student_login" class="nav-link text-white d-flex align-items-start"><img src="{% static 'common/images/user.png' %}"  alt="" width="24px" height="24px" class="me-2">Student</a></li>
+            <li class="nav-item"><a href="/teacher_login" class="nav-link text-white d-flex align-items-start"><img src="{% static 'common/images/teacher.svg' %}"  alt="" width="22px" height="22px" class="me-2">Teacher</a></li>
+            <li class="nav-item"><a href="/admin_login" class="nav-link text-white d-flex align-items-start"><img src="{% static 'common/images/administrator.svg' %}"  alt="" width="24px" height="24px" class="me-2">Admin</a></li>
+        </ul>
+        <img src="{% static 'common/images/hamburger-button.png' %}" id="nav-button" class="float-end me-2" alt="" width="35px" height="35px">
+    </nav>
+    <div class=" bg-primary p-3 mb-5" id="notice-board">
+        <h2 class="text-white ">NOTICE BOARD :</h2>
+       
+        <div class="p-4 bg-white">
+
+            <marquee behavior="" direction="up" class="h-100">
+                {% for i in news %}
+
+                <div>
+                    <h1>{{i.title | title }}</h1>
+                    <p>{{i.description | capfirst}}</p>
+                    <p class="text-primary">{{i.created_date}}</p>
+                    <hr>
+                </div> 
+
+                {% endfor %}
+                
+            </marquee>
+        </div>
+            
+        
+    </div>
+    <script src="{% static 'common/js/script.js' %}"></script>
+</body>
+</html>
