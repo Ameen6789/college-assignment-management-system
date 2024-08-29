@@ -1,0 +1,151 @@
+.home-page{
+    background-image: url("../images/login.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    
+}
+
+form{
+    
+    min-width: 28%;
+    padding-top: 60px;
+    padding-bottom: 60px; 
+    
+}
+
+#login-form{
+    
+    width: 25%;
+    
+}
+nav{
+    background-color: #102f77
+}
+nav a:hover{
+    background-color: rgba(167, 167, 167, 0.381);
+}
+
+.fa-chevron-down {
+    transition: transform 0.2s;
+}
+.fa-chevron-down.rotate {
+    transform: rotate(180deg);
+}
+.navbar .nav a{
+    font-size: 15px;
+    
+}
+#main-div{
+    
+    flex-grow: 1;
+}
+
+#div1{
+    height: 40px;
+    width: 100%;
+    background-color: rgba(159, 215, 252, 0.475);
+}
+
+.dashboard-container{
+    flex-wrap: wrap;
+}
+.dashboard-items{
+    box-shadow: 1px 1px 5px 0px black;
+    flex-basis: 48%;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    
+}
+#details-table th,#details-table td{
+    border: 1px solid black;
+    padding:6px
+}
+
+#details-table{
+    width: 100%;   
+}
+
+#assignment-table tr:nth-child(odd){
+    background-color:#ebebeb;
+}
+
+#assignment-table{
+    border: 1px solid black;
+}
+
+#assignment-table td,#assignment-table th{
+    border: 1px solid black;
+    padding-left: 9px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+}
+
+#sidebar{
+    display: block;
+}
+
+#nav-button{
+    display: none;
+    cursor: pointer;
+}
+
+@media(max-width:900px){
+    #login-form{
+        margin-left: 0px;
+        margin-right: 0px;
+        width: 50%;
+        
+    }
+    body{
+        position: relative;
+    }
+    
+    #sidebar{
+        display: none;
+        position: absolute;
+        height: 100vh;
+        width: 100%;
+        top:50px;
+        
+        
+    }
+    #sidebar a{
+        display: flex;
+        
+        justify-content: center;
+        
+        
+    }
+    #sidebar li,#sidebar a, #sidebar ul{
+        width: 100%;
+    }
+    #nav-button{
+        display: block;
+    }
+    
+}
+
+@media(max-width:600px){
+    #login-form{
+        margin-left: 0px;
+        margin-right: 0px;
+        width: 70%;
+        
+    }
+    
+}
+
+@media(max-width:400px){
+    #login-form{
+        margin-left: 0px;
+        margin-right: 0px;
+        width: 95%;
+        
+    }
+    #login-form{
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    
+}

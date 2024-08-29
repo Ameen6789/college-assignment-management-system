@@ -1,0 +1,115 @@
+body{
+    background-image: url("../images/home-page.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+nav{
+    background-color: #102f77
+}
+#title{
+    margin-left: 48px;
+}
+.nav li a{
+    font-size: 18px;
+}
+#navbar{
+    padding-left: 24px;
+    padding-right: 24px;
+}
+nav a:hover{
+    background-color: rgba(167, 167, 167, 0.381);
+}
+#nav-button{
+    display: none;
+    cursor: pointer;
+}
+#notice-board{
+    margin-top: 200px;
+    margin-left:150px;
+    margin-right:150px;
+    height: 450px;
+    overflow: hidden;
+}
+#notice-board>div{
+    height: 90%;
+}
+
+@media (max-width:1036px){
+    #navbar{
+        position: relative;
+    }
+    #navbar ul{
+        display: none;
+        padding-top: 20px;
+        width: 100%;
+        height: 100vh;
+        right: 0;
+        
+        align-items: center;
+        top:80px;
+        flex-direction: column;
+        position: absolute;
+        background-color: #102f77d1
+    }
+    #navbar ul li{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    #navbar ul li a{
+        width: 100%;
+        justify-content: center;
+    }
+    #navbar ul a:hover{
+        background-color: rgba(167, 167, 167, 0.381);
+    }
+    
+    nav#navbar {
+        padding-right: 0px;
+        margin-right: 0px;
+    }
+    #title{
+        margin-left: 0px;
+    }
+    #navbar{
+        padding: 10px;
+        margin: 0;
+        justify-content:start;
+    }
+    #nav-button{
+        display: block;
+        margin-left: auto;
+        
+    }
+}
+@media (max-width:900px){
+    #notice-board{
+        margin-top: 200px;
+        margin-left:30px;
+        margin-right:30px;
+        height: 450px;
+        overflow: hidden;
+    }
+    
+    #navbar{
+        padding: 10px;
+        margin: 0;
+        justify-content:start;
+    }
+    
+    
+}
+@media (max-width:600px){
+    #title{
+        font-size: 18px;
+        margin-left: 0px;
+        margin-right: 10px;
+        
+    }
+    #nav-button{
+        
+        margin-right: 10px;
+        
+        float: right;
+    }
+}
