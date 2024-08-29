@@ -7,6 +7,9 @@ urlpatterns = [
     
     path("",home),
     path("logout",logouts),
+
+    #admin urls
+
     path('admin_login',adminlogin),
     path("dashboard",dashboard),
     path("teacher",teacher),
@@ -32,6 +35,8 @@ urlpatterns = [
     path("search",search),
 
 
+    #teacher urls
+
     path("teacher_login",teacherlogin),
     path("teacher_dashboard",teacherdashboard),
     path("teacher_assignment",teacherAssignment),
@@ -52,6 +57,8 @@ urlpatterns = [
 
 
 
+    #student urls
+    
     path("student_login",studentlogin),
     path("student_dashboard",studentdashboard),
     path("new_assignment",newAssignment),

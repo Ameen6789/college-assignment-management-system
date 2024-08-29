@@ -8,9 +8,6 @@ from django.db.models import Q
 from django.contrib.auth.decorators import user_passes_test
 
 
-
-
-
 def is_admin(user):
     return user.is_authenticated and user.is_superuser 
 
@@ -53,6 +50,7 @@ def course(request):
         course_data=Course.objects.all()
         return render(request,"admin/course.html",{"data":course_data})
 
+
 @user_passes_test(is_admin)
 def editCourse(request,id):
     if request.method=="POST":
@@ -68,12 +66,12 @@ def editCourse(request,id):
         edit=Course.objects.get(id=id)
         return render(request,"admin/edit_course.html",{"edit":edit})
 
+
 @user_passes_test(is_admin)
 def deleteCourse(request,id):
     x=Course.objects.get(id=id)
     x.delete()
     return HttpResponse('<script>alert("Course Deleted"); window.history.back();</script>')
-
 
 
 @user_passes_test(is_admin)
@@ -258,6 +256,7 @@ def uncheckedAssignment(request):
         subjects=Subject.objects.all()
         return render(request,"admin/unchecked_assignment.html",{"subjects":subjects})
 
+
 @user_passes_test(is_admin)
 def checkedAssignment(request):
     if request.method=="POST":
@@ -271,6 +270,7 @@ def checkedAssignment(request):
         subjects=Subject.objects.all()
         return render(request,"admin/checked_assignment.html",{"subjects":subjects})
     
+
 @user_passes_test(is_admin)
 def admin_view_checked_assignment(request,assignment_no,student_id):
     assignment_details=AssignmentSubmissionDetails.objects.get(assignment=assignment_no,student_id=student_id)
@@ -278,6 +278,7 @@ def admin_view_checked_assignment(request,assignment_no,student_id):
     student_roll_no=Student.objects.get(student_id=student).roll_no
     return render(request,"admin/admin_view_submitted_assignment.html",{"assignment_details":assignment_details,"student_roll_no":student_roll_no})
     
+
 @user_passes_test(is_admin)
 def admin_view_unchecked_assignment(request,assignment_no,student_id):
     assignment_details=AssignmentSubmissionDetails.objects.get(assignment=assignment_no,student_id=student_id)
@@ -285,6 +286,7 @@ def admin_view_unchecked_assignment(request,assignment_no,student_id):
     student_roll_no=Student.objects.get(student_id=student).roll_no
     return render(request,"admin/admin_view_unchecked_assignment.html",{"assignment_details":assignment_details,"student_roll_no":student_roll_no})
     
+
 @user_passes_test(is_admin)
 def btw_date_assignment(request):
     if request.method == "POST":
@@ -295,6 +297,7 @@ def btw_date_assignment(request):
     else:
 
         return render(request, "admin/btw_date_assignment.html")
+
 
 @user_passes_test(is_admin)
 def search(request):
@@ -317,6 +320,7 @@ def search(request):
     else:
 
         return render(request,"admin/search.html")
+    
     
 @user_passes_test(is_admin)
 def changePassword(request):

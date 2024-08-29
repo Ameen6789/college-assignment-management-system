@@ -26,6 +26,7 @@ def studentlogin(request):
     else:
         return render(request,"student/student_login.html")
 
+
 @user_passes_test(is_student)
 def studentdashboard(request):
     id=request.session["student_id"]
@@ -36,6 +37,7 @@ def studentdashboard(request):
     news=News.objects.all()
     print(news)
     return render(request,"student/student_dashboard.html",{"student_name":student_name,"student_course":student_course,"news":news})
+
 
 def register(request):
     if request.method=="POST":
@@ -124,7 +126,7 @@ def studentStudyMaterial(request):
     print(subjects)
     return render(request,"student/student_study_material.html",{"student_name":student_name,"study_materials":studymaterials,"subjects":subjects})
 
-
+@user_passes_test(is_student)
 def studentViewStudyMaterial(request,id):
     studentid=request.session["student_id"]
     student=User.objects.get(id=studentid)
@@ -167,6 +169,7 @@ def studentProfile(request):
         student_name=student.first_name.capitalize()+ " "+student.last_name.capitalize()
         student=Student.objects.get(student=id)
         return render(request,"student/student_profile.html",{"edit":student,"student_name":student_name})
+
 
 @user_passes_test(is_student)
 def studentChangePassword(request):

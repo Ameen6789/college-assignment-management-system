@@ -7,6 +7,7 @@ from .forms import StudyMaterialForm
 from django.contrib.auth.decorators import user_passes_test
 from django.utils import timezone
 
+
 def is_teacher(user):
     return user.is_authenticated and user.usertype == 'teacher'
 
@@ -185,6 +186,7 @@ def viewUncheckedAssignment(request,assignment_no,student_id):
         student_roll_no=Student.objects.get(student_id=student).roll_no
         return render(request,"teacher/teacher_view_unchecked_assignment.html",{"assignment_details":assignment_details,"teacher_name":teacher_name,"student_roll_no":student_roll_no})
        
+
 @user_passes_test(is_teacher)
 def viewCheckedAssignment(request,assignment_no,student_id):
     teacherid=request.session["teacher_id"]
@@ -194,8 +196,6 @@ def viewCheckedAssignment(request,assignment_no,student_id):
     student=assignment_details.student_id
     student_roll_no=Student.objects.get(student_id=student).roll_no
     return render(request,"teacher/teacher_view_checked_assignment.html",{"assignment_details":assignment_details,"teacher_name":teacher_name,"student_roll_no":student_roll_no})
-
-
 
 
 
@@ -254,12 +254,6 @@ def deleteStudyMaterial(request,id):
     studymaterial=StudyMaterial.objects.get(id=id)
     studymaterial.delete()
     return redirect('study_material')
-
-
-
-
-
-
 
 
 @user_passes_test(is_teacher)

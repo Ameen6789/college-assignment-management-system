@@ -18,7 +18,7 @@ from django.conf.urls.static import static
 from django.conf import settings
 from django.contrib import admin
 from django.urls import path,include
-# from sampleapp import views
+
 from assignment_management_app.studentviews import *
 from assignment_management_app.teacherviews import *
 from assignment_management_app.adminviews import *
