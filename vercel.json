@@ -1,4 +1,4 @@
-{
+{   "version":2,
     "builds":[{
         "src":"assignment_management_app/wsgi.py",
         "use":"@vercel/python",
