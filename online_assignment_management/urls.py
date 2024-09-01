@@ -27,4 +27,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("",include("assignment_management_app.urls")),
     # path('view',display),
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
+urlpatterns+= static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns+= static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

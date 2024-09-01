@@ -25,13 +25,13 @@ SECRET_KEY = 'django-insecure-3urk!w82ry*z#oj(@ny2e1j=k1sr66ll#z#8$ko(cc%$$r8iy6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = [".vercel.app",".now.sh","127.0.0.1","localhost"]
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'whitenoise.runserver_nostatic'
+    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -43,7 +43,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -77,12 +77,27 @@ WSGI_APPLICATION = 'online_assignment_management.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER':'postgres',
+        'PASSWORD':'AFUEKBznGPFxrDyoTtgvzlEtoyZpFSyL',
+        'HOST':'autorack.proxy.rlwy.net',
+        'PORT':'11192'
     }
 }
+
+#postgresql://postgres:AFUEKBznGPFxrDyoTtgvzlEtoyZpFSyL@autorack.proxy.rlwy.net:11192/railway
 
 
 # Password validation
@@ -121,8 +136,9 @@ TIME_ZONE = 'Asia/Kolkata'
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_DIRS=[os.path.join(BASE_DIR,"assignment_management_app/static")]
-STATIC_ROOT=os.path.join(BASE_DIR,"staticfiles")
+STATICFILES_DIRS=[os.path.join(BASE_DIR,"static")]
+STATIC_ROOT=os.path.join(BASE_DIR,"staticfiles_build","static")
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
