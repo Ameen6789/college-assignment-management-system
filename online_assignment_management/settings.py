@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-3urk!w82ry*z#oj(@ny2e1j=k1sr66ll#z#8$ko(cc%$$r8iy6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [".vercel.app",".now.sh","127.0.0.1"]
 
@@ -135,8 +135,8 @@ TIME_ZONE = 'Asia/Kolkata'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "assignment_management_app", "static")]
+STATIC_URL = 'static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles_build", "static")
 
 
@@ -156,11 +156,11 @@ MEDIA_ROOT=os.path.join(BASE_DIR,"media")
 MEDIA_URL="/media/"
 
 
-EMAIL_USE_TLS=True
-EMAIL_HOST="smtp.gmail.com"
-EMAIL_PORT=587
-EMAIL_HOST_USER="azrucha@gmail.com"
-EMAIL_HOST_PASSWORD="xtfc ssbo bbhp wvqe"
+# EMAIL_USE_TLS=True
+# EMAIL_HOST="smtp.gmail.com"
+# EMAIL_PORT=587
+# EMAIL_HOST_USER="azrucha@gmail.com"
+# EMAIL_HOST_PASSWORD="xtfc ssbo bbhp wvqe"
 
 AUTH_USER_MODEL="assignment_management_app.user"
 
