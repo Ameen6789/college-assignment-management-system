@@ -3,16 +3,17 @@
 This is a comprehensive website created using Python and django.
 
 
-![screenshot-1](https://github.com/user-attachments/assets/1bb38a58-110a-49f1-bf3f-9773ce683d74)
+
+![screenshot-1](https://github.com/user-attachments/assets/e0e3fac3-5421-4cea-bfa4-e4382845ac8a)
 
 
-![screenshot-2](https://github.com/user-attachments/assets/ba9f0fb6-d3cc-4795-91ba-39f85d56a891)
+![screenshot-2](https://github.com/user-attachments/assets/54141729-cc3e-4bd4-9a17-27c22ce6fcde)
 
 
-![screenshot-3](https://github.com/user-attachments/assets/33479f64-b481-45ab-bf0a-0a9e576706c2)
+![screenshot-3](https://github.com/user-attachments/assets/9e666d02-60ae-4ed0-83c5-ce3413436ecf)
 
 
-![screenshot-4](https://github.com/user-attachments/assets/19a88b0f-4070-4285-8bcc-6c5800603fde)
+![screenshot-4](https://github.com/user-attachments/assets/45f616c9-1f8c-4ace-a496-d8f79f11cf4b)
 
 
-![screenshot-5](https://github.com/user-attachments/assets/b81198bc-3030-4fff-96e4-0e2b9adcdb62)
+![screenshot-5](https://github.com/user-attachments/assets/04ccd1c6-6887-4ccd-b9db-9ae88ab89c44)
