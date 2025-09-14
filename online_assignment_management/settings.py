@@ -104,7 +104,7 @@ DATABASES = {
         'USER':'postgres',
         'PASSWORD':'Ameen@2025$',
         'HOST':'db.strpjjurhsuuszpigunm.supabase.co',
-        'PORT':'5432'
+        'PORT':'6543'
     }
 }
 
