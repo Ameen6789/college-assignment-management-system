@@ -88,11 +88,11 @@ WSGI_APPLICATION = 'online_assignment_management.wsgi.application'
 
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
+#         'ENGINE': 'django.db.backends.postgresq',
 #         'NAME': 'railway',
 #         'USER':'postgres',
 #         'PASSWORD':'AFUEKBznGPFxrDyoTtgvzlEtoyZpFSyL',
-#         'HOST':'autorack.proxy.rlwy.net',
+#         'HOST':'autorack.proxy.rlwy.ne',
 #         'PORT':'11192'
 #     }
 # }
@@ -101,9 +101,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'postgres',
-        'USER':'postgres',
+        'USER':'postgres.strpjjurhsuuszpigunm',
         'PASSWORD':'Ameen@2025$',
-        'HOST':'db.strpjjurhsuuszpigunm.supabase.co',
+        'HOST':'aws-1-ap-south-1.pooler.supabase.com',
         'PORT':'6543'
     }
 }
