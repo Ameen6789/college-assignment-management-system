@@ -69,7 +69,7 @@ class News(models.Model):
 class StudyMaterial(models.Model):
     title=models.CharField(max_length=200)
     description=models.TextField(blank=True, null=True)
-    file=models.FileField(upload_to="media/study_materials")
+    file=models.FileField(upload_to="study_materials/")
     upload_date=models.DateField(auto_now_add=True)
     subject=models.ForeignKey(Subject,on_delete=models.CASCADE)
     emp=models.ForeignKey(User,on_delete=models.CASCADE)
