@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'storages',
     'assignment_management_app'
 ]
 
@@ -163,8 +164,8 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-MEDIA_ROOT=os.path.join(BASE_DIR,"media")
-MEDIA_URL="/media/"
+# MEDIA_ROOT=os.path.join(BASE_DIR,"media")
+# MEDIA_URL="/media/"
 
 
 # EMAIL_USE_TLS=True
@@ -176,3 +177,13 @@ MEDIA_URL="/media/"
 AUTH_USER_MODEL="assignment_management_app.user"
 
 LOGIN_URL="/"
+
+DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+
+AWS_ACCESS_KEY_ID = "fffe87340c17756a3ab78a5eefa98e40"
+AWS_SECRET_ACCESS_KEY = "3ee4d2061452d04736b24e26415816bac2d92134eead0bde83e9acef77cb941c"
+AWS_STORAGE_BUCKET_NAME = "college-assignment-management-system-files"
+AWS_S3_ENDPOINT_URL = "https://strpjjurhsuuszpigunm.storage.supabase.co/storage/v1/s3"
+
+AWS_S3_REGION_NAME = "ap-south-1"   # (or whatever Supabase region you created the project in)
+AWS_DEFAULT_ACL = None 
