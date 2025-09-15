@@ -180,8 +180,8 @@ LOGIN_URL="/"
 
 DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
 
-AWS_ACCESS_KEY_ID = "fffe87340c17756a3ab78a5eefa98e40"
-AWS_SECRET_ACCESS_KEY = "3ee4d2061452d04736b24e26415816bac2d92134eead0bde83e9acef77cb941c"
+AWS_ACCESS_KEY_ID = "cefc5c3cc20064ab3344501b1077149e" 
+AWS_SECRET_ACCESS_KEY = "534e46477e91352e765f10d321ebab7faa61b6232de6d32d4682ce8ebeb004a8"
 AWS_STORAGE_BUCKET_NAME = "college-assignment-management-system-files"
 AWS_S3_ENDPOINT_URL = "https://strpjjurhsuuszpigunm.storage.supabase.co/storage/v1/s3"
 
