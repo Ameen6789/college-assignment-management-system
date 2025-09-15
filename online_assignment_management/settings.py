@@ -189,3 +189,12 @@ AWS_S3_REGION_NAME = "ap-south-1"   # (or whatever Supabase region you created t
 AWS_DEFAULT_ACL = None 
 MEDIA_URL = f"https://strpjjurhsuuszpigunm.storage.supabase.co/storage/v1/object/public/college-assignment-management-system-files/"
 
+STORAGES = {
+    "default": {
+        "BACKEND": "storages.backends.s3boto3.S3Boto3Storage",
+    },
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
+
