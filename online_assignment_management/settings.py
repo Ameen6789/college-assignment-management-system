@@ -90,11 +90,11 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 # # DATABASES = {
 # #     'default': {
 # #         'ENGINE': 'django.db.backends.postgresq',
-# #         'NAME': 'railway',
-# #         'USER':'postgres',
-# #         'PASSWORD':'AFUEKBznGPFxrDyoTtgvzlEtoyZpFSyL',
-# #         'HOST':'autorack.proxy.rlwy.ne',
-# #         'PORT':'11192'
+# #         'NAME': '',
+# #         'USER':'',
+# #         'PASSWORD':'',
+# #         'HOST':'',
+# #         'PORT':''
 # #     }
 # # }
 
@@ -180,15 +180,15 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 # DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
 
-# AWS_ACCESS_KEY_ID = "cefc5c3cc20064ab3344501b1077149e" 
-# AWS_SECRET_ACCESS_KEY = "534e46477e91352e765f10d321ebab7faa61b6232de6d32d4682ce8ebeb004a8"
-# AWS_STORAGE_BUCKET_NAME = "college-assignment-management-system-files"
-# AWS_S3_ENDPOINT_URL = "https://strpjjurhsuuszpigunm.storage.supabase.co/storage/v1/s3"
+# AWS_ACCESS_KEY_ID = "" 
+# AWS_SECRET_ACCESS_KEY = ""
+# AWS_STORAGE_BUCKET_NAME = ""
+# AWS_S3_ENDPOINT_URL = ""
 
 # AWS_S3_REGION_NAME = "ap-south-1"   # (or whatever Supabase region you created the project in)
 # AWS_DEFAULT_ACL = None 
 # AWS_QUERYSTRING_AUTH = False
-# MEDIA_URL = f"https://strpjjurhsuuszpigunm.storage.supabase.co/storage/v1/object/public/college-assignment-management-system-files/"
+# MEDIA_URL = ""
 
 # STORAGES = {
 #     "default": {
@@ -294,11 +294,11 @@ WSGI_APPLICATION = 'online_assignment_management.wsgi.application'
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresq',
-#         'NAME': 'railway',
+#         'NAME': '',
 #         'USER':'postgres',
-#         'PASSWORD':'AFUEKBznGPFxrDyoTtgvzlEtoyZpFSyL',
-#         'HOST':'autorack.proxy.rlwy.ne',
-#         'PORT':'11192'
+#         'PASSWORD':'',
+#         'HOST':'',
+#         'PORT':''
 #     }
 # }
 
@@ -381,11 +381,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # MEDIA_URL="/media/"
 
 
-# EMAIL_USE_TLS=True
-# EMAIL_HOST="smtp.gmail.com"
-# EMAIL_PORT=587
-# EMAIL_HOST_USER="azrucha@gmail.com"
-# EMAIL_HOST_PASSWORD="xtfc ssbo bbhp wvqe"
+
 
 AUTH_USER_MODEL="assignment_management_app.user"
 
