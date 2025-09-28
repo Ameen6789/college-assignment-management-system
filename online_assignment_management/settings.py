@@ -102,9 +102,9 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql',
 #         'NAME': 'postgres',
-#         'USER':'postgres.strpjjurhsuuszpigunm',
-#         'PASSWORD':'Ameen@2025$',
-#         'HOST':'aws-1-ap-south-1.pooler.supabase.com',
+#         'USER':'',
+#         'PASSWORD':'',
+#         'HOST':,
 #         'PORT':'6543'
 #     }
 # }
@@ -306,9 +306,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'postgres',
-        'USER':'postgres.strpjjurhsuuszpigunm',
-        'PASSWORD':'Ameen@2025$',
-        'HOST':'aws-1-ap-south-1.pooler.supabase.com',
+        'USER':os.getenv('DB_USER'),
+        'PASSWORD':os.getenv('DB_PASSWORD'),
+        'HOST':os.getenv('DB_HOST'),
         'PORT':'6543'
     }
 }
