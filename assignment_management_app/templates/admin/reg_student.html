@@ -87,13 +87,12 @@
                             <td>{{ s.student.date_joined|date:"Y-m-d" }}</td>
                             <td>
                                 {% if s.student.is_active %}
-                                <a href="/approve_student/{{ s.student.id }}">
-                                    <button class="btn btn-success me-3 disabled" disabled>Approved</button>
+                                <a href="/approve_student/{{ s.student.id }}" class="me-3 text-decoration-none btn btn-success disabled">
+                                Approved
                                 </a>
                                 {% else %}
-                                <a href="/approve_student/{{ s.student.id }}">
-                                    <button class="btn btn-success me-3">Approve</button>
-                                </a>
+                                <a href="/approve_student/{{ s.student.id }}" class="me-3 text-decoration-none btn btn-success">
+                                Approve</a>
                                 {% endif %}
                                 <a href="/delete_student/{{ s.student.id }}">
                                     <button class="btn btn-danger">Delete</button>

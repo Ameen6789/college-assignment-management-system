@@ -17,12 +17,21 @@
         <h1 class="mb-3 ">Welcome Back!</h1>
         <h2 class="text-danger">Student Sign in</h2>
         <label for="username" class="w-100 h5 mt-5">Email ID</label>
-        <input type="email" name="username" placeholder="Enter Email ID" class="form-control mb-3">
+        <input type="email" name="username" id="username" placeholder="Enter Email ID" class="form-control mb-3">
         <label for="username" class="w-100 h5">Password</label>
-        <input type="password" name="password" placeholder="Enter Password" class="form-control">
+        <input type="password" name="password" id="password" placeholder="Enter Password" class="form-control">
         <input type="submit" value="Login" class="btn btn-primary mt-4 form-control" >
+        <p class='w-100 pt-2'><a href="#" class='text-decoration-none' onclick="demoLogin()">Demo Login</a></p>
+
         <p class="text-center mt-5">Don't have an account? <a href="/register">Sign Up</a></p>
             
     </form>
 </body>
+    <script>
+        function demoLogin(){
+            document.getElementById("username").value = "demo1@gmail.com";
+            document.getElementById("password").value = "Demo1@1234";
+            document.getElementById("login-form").submit();
+        }
+    </script>
 </html>
