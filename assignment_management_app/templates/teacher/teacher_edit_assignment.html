@@ -87,7 +87,8 @@
             
             <label for="empid" class="mb-1">New Assignment File</label><br>
             <a href="{{assignment.assignment_file.url}}">Current Assignment File</a><br>
-            <input type="file"  name="assignment_file" class="form-control mb-4">
+            <input type="file"  name="assignment_file" class="form-control mb-4" id="fileInput"  accept=".pdf,.png,.jpg,.jpeg,.doc,.docx,.webp"  onchange="checkFileType(this)"
+>
 
             
             <input type="submit"  class="btn btn-primary mb-5" value="Update">
@@ -100,7 +101,47 @@
        
     </script>
     
-    
+        <script>
+        function checkFileType(input) {
+            const file = input.files[0];
+            if (!file) return;
+
+            const allowedExtensions = ["pdf", "png", "jpg", "jpeg", "doc", "docx","webp"];
+            const allowedTypes = [
+                "application/pdf",
+                "image/png",
+                "image/jpeg",
+                "image/webp",
+                "application/msword",
+                "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+            ];
+            const maxSize = 5 * 1024 * 1024; // 5MB
+
+            const fileName = file.name.toLowerCase();
+            const fileExt = fileName.split('.').pop();
+
+            // Extension check
+            if (!allowedExtensions.includes(fileExt)) {
+                alert("Only PDF, PNG, JPG, DOC, DOCX, WEBP files are allowed.");
+                input.value = "";
+                return;
+            }
+
+            // MIME check
+            if (!allowedTypes.includes(file.type)) {
+                alert("Invalid file type.");
+                input.value = "";
+                return;
+            }
+
+            // Size check
+            if (file.size > maxSize) {
+                alert("File size must be less than 5MB.");
+                input.value = "";
+                return;
+            }
+        }
+    </script>
     
 </body>
 </html>

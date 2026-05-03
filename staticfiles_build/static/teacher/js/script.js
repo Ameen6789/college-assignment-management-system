@@ -59,3 +59,42 @@ function hideInfoTable(){
     }
     
     }
+
+        function checkFileType(input) {
+            const file = input.files[0];
+            if (!file) return;
+
+            const allowedExtensions = ["pdf", "png", "jpg", "jpeg", "doc", "docx"];
+            const allowedTypes = [
+                "application/pdf",
+                "image/png",
+                "image/jpeg",
+                "application/msword",
+                "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+            ];
+            const maxSize = 5 * 1024 * 1024; // 5MB
+
+            const fileName = file.name.toLowerCase();
+            const fileExt = fileName.split('.').pop();
+
+            // Extension check
+            if (!allowedExtensions.includes(fileExt)) {
+                alert("Only PDF, PNG, JPG, DOC, DOCX files are allowed.");
+                input.value = "";
+                return;
+            }
+
+            // MIME check
+            if (!allowedTypes.includes(file.type)) {
+                alert("Invalid file type.");
+                input.value = "";
+                return;
+            }
+
+            // Size check
+            if (file.size > maxSize) {
+                alert("File size must be less than 5MB.");
+                input.value = "";
+                return;
+            }
+        }

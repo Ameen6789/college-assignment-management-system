@@ -14,7 +14,8 @@ class StudyMaterialForm(forms.ModelForm):
         widgets = {
             "title": forms.TextInput(attrs={"class": "form-control mb-3"}),
             "description": forms.TextInput(attrs={"class": "form-control mb-3"}),
-            "file": forms.FileInput(attrs={"class": "form-control"}),
+            "file": forms.FileInput(attrs={"class": "form-control", "accept": ".pdf,.png,.jpg,.jpeg,.webp,.doc,.docx","onchange": "checkFileType(this)","id":"fileInput"
+}),
         }
 
     def __init__(self, *args, **kwargs):

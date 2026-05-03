@@ -94,7 +94,7 @@
                     </tr>
                     <tr>
                         <th width="20%" >Upload Answer File</th>
-                        <td colspan="3" class="px-2"><input type="file" name="answer_paper" class="form-control"></td>
+                        <td colspan="3" class="px-2"><input type="file" name="answer_paper" class="form-control" id="fileInput"  accept=".pdf,.png,.jpg,.jpeg,.doc,.docx,.webp"  onchange="checkFileType(this)" required></td>
                     </tr>
                     <tr>
                         
@@ -106,6 +106,47 @@
         
     </div>
     <script src="{% static 'student/js/script.js' %}"></script>
-    
+    <script>
+        function checkFileType(input) {
+            const file = input.files[0];
+            if (!file) return;
+
+            const allowedExtensions = ["pdf", "png", "jpg", "jpeg", "doc", "docx","webp"];
+            const allowedTypes = [
+                "application/pdf",
+                "image/png",
+                "image/jpeg",
+                "image/webp",
+                "application/msword",
+                "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+            ];
+            const maxSize = 5 * 1024 * 1024; // 5MB
+
+            const fileName = file.name.toLowerCase();
+            const fileExt = fileName.split('.').pop();
+
+            // Extension check
+            if (!allowedExtensions.includes(fileExt)) {
+                alert("Only PDF, PNG, JPG, DOC, DOCX, WEBP files are allowed.");
+                input.value = "";
+                return;
+            }
+
+            // MIME check
+            if (!allowedTypes.includes(file.type)) {
+                alert("Invalid file type.");
+                input.value = "";
+                return;
+            }
+
+            // Size check
+            if (file.size > maxSize) {
+                alert("File size must be less than 5MB.");
+                input.value = "";
+                return;
+            }
+        }
+    </script>
+
 </body>
 </html>
