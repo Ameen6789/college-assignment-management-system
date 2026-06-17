@@ -30,8 +30,8 @@ This is a comprehensive website created using Python and django.
 Clone the repository:
 
 ```bash
-git clone <repository-url>
-cd <project-directory>
+git clone https://github.com/Ameen6789/college-assignment-management-system.git
+cd college-assignment-management-system
 ```
 
 Create a `.env` file in the project root and add the required environment variables.
