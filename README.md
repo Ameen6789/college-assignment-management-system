@@ -17,3 +17,113 @@ This is a comprehensive website created using Python and django.
 
 
 ![screenshot-5](https://github.com/user-attachments/assets/04ccd1c6-6887-4ccd-b9db-9ae88ab89c44)
+
+# To Run the app using Docker
+
+## Prerequisites
+
+* Docker
+* Docker Compose
+
+## Setup
+
+Clone the repository:
+
+```bash
+git clone <repository-url>
+cd <project-directory>
+```
+
+Create a `.env` file in the project root and add the required environment variables.
+
+Example:
+
+```env
+
+DB_NAME=postgres
+DB_USER=postgres
+DB_PASSWORD=postgres
+DB_HOST=db
+DB_PORT=5432
+
+PRODUCTION=False
+```
+
+## Start the Application
+
+Build and start the containers:
+
+```bash
+docker compose up --build
+```
+
+To run in the background:
+
+```bash
+docker compose up --build -d
+```
+
+
+
+## Create a Superuser
+
+```bash
+docker compose exec api python manage.py createsuperuser
+```
+
+## View Logs
+
+```bash
+docker compose logs -f
+```
+
+For a specific service:
+
+```bash
+docker compose logs -f api
+```
+
+## Stop Containers
+
+```bash
+docker compose down
+```
+
+To remove volumes as well:
+
+```bash
+docker compose down -v
+```
+
+**Warning:** `docker compose down -v` deletes PostgreSQL data stored in Docker volumes.
+
+## Development Mode
+
+If Docker Compose watch mode is configured:
+
+```bash
+docker compose watch
+```
+
+or
+
+```bash
+docker compose up --watch
+```
+
+File changes will be synchronized into the running container automatically.
+
+## Production
+
+Set:
+
+```env
+PRODUCTION=True
+```
+
+When `PRODUCTION=True`:
+
+* Media files are stored in Amazon S3.
+* Static files are served using WhiteNoise.
+* Production AWS environment variables must be configured.
+
