@@ -86,7 +86,7 @@ def submitAssignment(request,id):
         answer_paper=request.FILES["answer_paper"]
         assignment=AssignmentSubmissionDetails.objects.create(student_id=studentid,assignment_id=id,assignment_description=assignment_answer_description,answer_paper=answer_paper)
         assignment.save()
-        return HttpResponse('<script>alert("Assignment Submitted"); window.history.back();</script>') 
+        return HttpResponse('<script>alert("Assignment Submitted"); window.location.href="/new_assignment";</script>') 
     
     else:
         studentid=request.session["student_id"]
@@ -110,7 +110,7 @@ def viewSubmittedAssignment(request,id):
     studentid=request.session["student_id"]
     student=User.objects.get(id=studentid)
     student_name=student.first_name.capitalize()+ " "+student.last_name.capitalize()
-    assignment_details=AssignmentSubmissionDetails.objects.get(assignment_id=id,student_id=studentid)
+    assignment_details=AssignmentSubmissionDetails.objects.filter(assignment_id=id,student_id=studentid).first()
     return render(request,"student/view_submitted_assignment.html",{"student_name":student_name,"assignment_details":assignment_details})
 
 

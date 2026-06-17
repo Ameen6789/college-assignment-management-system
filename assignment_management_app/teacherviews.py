@@ -103,7 +103,7 @@ def teacherEditAssignment(request,id):
         if assignment_file:
             assignment.assignment_file=assignment_file
         assignment.save()
-        return HttpResponse('<script>alert("Assignment Details Updated"); window.history.back();</script>')
+        return HttpResponse('<script>alert("Assignment Details Updated"); window.location.href="/teacher_assignment";</script>')
 
     else:
         assignment=Assignment.objects.get(assignment_no=id)
@@ -205,7 +205,7 @@ def studyMaterial(request):
     teacher=User.objects.get(id=teacherid)
     teacher_course=teacher.course_id
     if request.method == "POST":
-        form = StudyMaterialForm(request.POST, request.FILES, teacher_course=teacher_course)
+        form = StudyMaterialForm(request.POST, request.FILES,teacher_course=teacher_course)
         if form.is_valid():
             study_material = form.save(commit=False)
             study_material.emp_id = teacherid  

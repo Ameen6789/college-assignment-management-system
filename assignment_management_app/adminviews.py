@@ -146,6 +146,7 @@ def teacher(request):
         result = Teacher.objects.aggregate(max_id=Max('id'))
         max_id = int(result['max_id'])+1 if result['max_id'] is not None else 1
         teachers_by_course=[]
+        teachers=None
         for course in courses:
             teachers=Teacher.objects.filter(emp__course=course.id).order_by("emp__first_name")
             if teachers.exists():
@@ -273,7 +274,7 @@ def checkedAssignment(request):
 
 @user_passes_test(is_admin)
 def admin_view_checked_assignment(request,assignment_no,student_id):
-    assignment_details=AssignmentSubmissionDetails.objects.get(assignment=assignment_no,student_id=student_id)
+    assignment_details=AssignmentSubmissionDetails.objects.filter(assignment=assignment_no,student_id=student_id).first()
     student=assignment_details.student_id
     student_roll_no=Student.objects.get(student_id=student).roll_no
     return render(request,"admin/admin_view_submitted_assignment.html",{"assignment_details":assignment_details,"student_roll_no":student_roll_no})
@@ -281,7 +282,7 @@ def admin_view_checked_assignment(request,assignment_no,student_id):
 
 @user_passes_test(is_admin)
 def admin_view_unchecked_assignment(request,assignment_no,student_id):
-    assignment_details=AssignmentSubmissionDetails.objects.get(assignment=assignment_no,student_id=student_id)
+    assignment_details=AssignmentSubmissionDetails.objects.filter(assignment=assignment_no,student_id=student_id).first()
     student=assignment_details.student_id
     student_roll_no=Student.objects.get(student_id=student).roll_no
     return render(request,"admin/admin_view_unchecked_assignment.html",{"assignment_details":assignment_details,"student_roll_no":student_roll_no})
