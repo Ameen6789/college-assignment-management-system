@@ -54,7 +54,8 @@ PRODUCTION=False
 Build and start the containers:
 
 ```bash
-docker compose up --build
+docker compose --build
+docker compose up
 ```
 
 To run in the background:
