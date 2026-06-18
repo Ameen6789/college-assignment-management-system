@@ -61,7 +61,8 @@ docker compose up
 To run in the background:
 
 ```bash
-docker compose up --build -d
+docker compose --build
+docker compose up -d
 ```
 
 
